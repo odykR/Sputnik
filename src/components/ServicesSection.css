@@ -1,0 +1,147 @@
+.services-section {
+    padding: 0 20px 0;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+.services-section h2 {
+    padding-bottom: 30px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-container {
+    position: relative;
+}
+
+.service-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Эффект виньетки */
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+            ellipse at center,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0.5) 100%
+    );
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.service-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    filter: grayscale(100%);
+}
+
+.service-item.active img,
+.service-item:hover img {
+    filter: grayscale(0%);
+}
+
+.service-item:hover::before {
+    opacity: 0;
+}
+
+.service-item:hover img {
+    transform: scale(1.05);
+}
+
+.service-item h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: 'Druk', sans-serif;
+    transition: background 0.3s ease;
+    z-index: 2; /* Убедимся, что заголовок выше виньетки */
+}
+
+.service-item:hover h3,
+.service-item.active h3 {
+    background: rgba(66, 60, 178, 0.8);
+}
+
+.service-description {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: #f8f9fa;
+    color: #282c34;
+    border-radius: 0 0 8px 8px;
+    transition:
+            max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.3s ease 0.1s,
+            padding 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: -8px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.service-description.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    white-space: pre-line; /* Сохраняет переносы строк */
+    text-align: left; /* Выравнивание по левому краю */
+    padding-left: 20px; /* Отступ для пунктов */
+}
+
+.service-description p {
+    white-space: pre-line; /* Это ключевое свойство */
+    text-align: left;
+    padding-left: 20px;
+    margin: 0 auto;
+    max-width: 80%;
+    color: #282c34;
+    line-height: 1.6;
+    font-size: 16px;
+}
+.description-header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-description.active {
+        max-height: 300px;
+    }
+}

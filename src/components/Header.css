@@ -1,0 +1,160 @@
+
+
+.header {
+    font-family: 'FiraSans-Regular', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* Измененные отступы */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 24px;
+    background: transparent; /* Важно! */
+
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative; /* Добавляем для позиционирования логотипов */
+    width: 100px; /* Фиксированная ширина */
+    height: auto; /* Автоматическая высота */
+    /* Сохраняем оригинальные свойства для выравнивания */
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для изображений логотипа */
+.logo img {
+    width: 100px; /* Сохраняем исходный размер */
+    height: auto;
+    transition: opacity 0.4s ease;
+    /* Убираем transform из общего стиля */
+}
+
+/* Исходный логотип */
+.logo .default-logo {
+    position: static; /* Отменяем absolute для основного положения */
+    opacity: 1;
+}
+
+/* Логотип при наведении */
+.logo .hover-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+/* Анимация при наведении */
+.logo:hover .default-logo {
+    opacity: 0;
+}
+
+.logo:hover .hover-logo {
+    opacity: 1;
+}
+
+/* Удаляем старую анимацию bounce */
+/* @keyframes logoBounce и связанные стили удаляем */
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Отступ между пунктами меню */
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.menu ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* Добавьте эти стили */
+.menu ul li a {
+    text-decoration: none;
+    color: white; /* Явно указываем белый цвет */
+    font-family: 'FiraSans-Regular', sans-serif;
+    position: relative;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.menu ul li a:hover {
+    color: #423cb2; /* Цвет при наведении */
+    text-decoration: none;
+}
+
+.contact-info {
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.contact-info a {
+    color: white; /* Исходный цвет (белый) */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.contact-info a:hover {
+    color: #423cb2; /* Цвет при наведении */
+}
+
+
+
+.contact-item:hover {
+    color: #423cb2;
+    cursor: default; /* Убрать курсор-указатель */
+}
+
+.contact-item:hover .contact-icon {
+    filter: brightness(0) saturate(100%) invert(19%) sepia(85%) saturate(1577%) hue-rotate(234deg) brightness(90%) contrast(89%);
+}
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 991px) {
+    .header {
+        flex-direction: column; /* Переводим в вертикальную ориентацию */
+        padding: 20px; /* Увеличиваем поля для мобильных устройств */
+        gap: 20px; /* Отступ между основными секциями */
+    }
+
+    .logo {
+        margin-bottom: 20px; /* Отступ снизу для логотипа */
+    }
+
+    .menu {
+        flex-direction: column; /* Переводим меню в вертикальную ориентацию */
+        gap: 10px; /* Отступ между пунктами меню */
+    }
+
+    .contact-info {
+        flex-direction: column; /* Переводим контактную информацию в вертикальную ориентацию */
+        gap: 10px; /* Отступ между элементами контактной информации */
+    }
+}

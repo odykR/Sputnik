@@ -1,0 +1,24 @@
+
+
+.scroll-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.scroll-button:hover {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.05);
+}

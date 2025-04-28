@@ -1,0 +1,90 @@
+/* Основная обертка */
+/* Основная обертка */
+.yanmap-wrapper {
+    width: 100%;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Контейнер для контента */
+.contacts-container {
+    position: relative;
+    min-height: 500px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+/* Карта - занимает всю ширину слева */
+.map-container {
+    position: absolute;
+    top: 0;
+    left: calc((100vw - 1200px) / -2); /* Вытягиваем за пределы контейнера */
+    right: 600px; /* Останавливаем у центра контейнера */
+    height: 100%;
+    margin-left: calc(50% - 600px); /* Центрируем относительно контейнера */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Блок контактов - фиксированная ширина справа */
+.contacts-info {
+    width: 600px;
+    padding: 60px 40px;
+    margin-left: auto; /* Прижимаем к правому краю контейнера */
+    background-color: #000;
+    position: relative;
+    z-index: 2;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.contacts-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: #4CAF50;
+    font-family: 'Druk', sans-serif;
+    text-align: left; /* Заголовок тоже по левому краю */
+}
+
+.contacts-details {
+    font-size: 18px;
+    line-height: 2;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: left; /* Текст деталей по левому краю */
+    padding-left: 0; /* Убираем возможные отступы */
+    margin-left: 0; /* Убираем возможные отступы */
+}
+
+.contacts-details p {
+    margin-bottom: 15px;
+    text-align: left; /* Каждый параграф по левому краю */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 992px) {
+    .contacts-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .map-container {
+        position: relative;
+        right: 0;
+        height: 400px;
+    }
+
+    .contacts-info {
+        width: 100%;
+        padding: 40px 20px;
+    }
+}
