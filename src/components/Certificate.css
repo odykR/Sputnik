@@ -1,11 +1,10 @@
-/* Certificate.css */
 .certificate {
     position: relative;
     width: 100%;
     padding: 60px 20px 20px;
-    background: #ffffff;
+    background-color: #f0f5fb;
     overflow: hidden;
-    scroll-margin-top: 100px; /* Компенсация для скролла */
+    scroll-margin-top: 100px;
 }
 
 .container {
@@ -13,7 +12,7 @@
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    border: 2px solid #4CAF50;
+    border: 2px solid #356d8c;
     border-radius: 8px;
     padding: 40px;
 }
@@ -34,25 +33,23 @@
     text-align: right;
 }
 
-/* Анимация только для изображения */
 .certificate-img {
     width: 50%;
     max-width: 100%;
     max-height: 400px;
     border-radius: 8px;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Плавная анимация */
-    transform: scale(1); /* Начальное состояние */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: scale(1);
 }
 
 .certificate-img:hover {
-    transform: scale(1.05) translateZ(10px); /* Увеличение и эффект глубины */
+    transform: scale(1.05) translateZ(10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    z-index: 2; /* Поднимаем выше других элементов */
+    z-index: 2;
 }
 
-/* Остальные стили без изменений */
 .title-h1 {
-    font-size: 2.2rem;
+    font-size: 34px;
     margin-bottom: 25px;
     color: #333;
     font-weight: 700;
@@ -64,29 +61,38 @@
     margin-bottom: 30px;
     line-height: 1.7;
     color: #444;
-    font-size: 1.1rem;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 18px;
+    text-align: justify;
 }
 
 .btn {
     display: inline-block;
     padding: 14px 30px;
-    background-color: #4CAF50;
+    background-color: #356d8c;
     color: white;
     text-decoration: none;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 16px;
     border-radius: 4px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    border: 2px solid #4CAF50;
 }
 
 .btn:hover {
-    background-color: #449c36;
+    background-color: #2d3155;
     color: white;
 }
 
 @media (max-width: 992px) {
+    .container {
+        padding: 30px 25px;
+        margin: 0 20px;
+        border-left: none;
+        border-right: none;
+    }
     .row {
         flex-direction: column;
     }
@@ -104,28 +110,35 @@
     }
 
     .certificate-img {
-        max-height: 250px;
+        max-height: 200px;
+        max-width: 200px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+
+    .certificate-img {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    .certificate {
+        padding: 40px 10px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     .container {
-        padding: 30px;
+        padding: 25px 15px;
+        margin: 0 10px;
+        border-radius: 0;
     }
 
-    .title-h1 {
-        font-size: 1.8rem;
-    }
-
-    .text {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 12px 25px;
-    }
-
-    .certificate-img:hover {
-        transform: scale(1.03); /* Меньшее увеличение на мобильных */
+    .certificate-img {
+        max-height: 200px;
+        max-width: 200px;
     }
 }

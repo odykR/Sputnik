@@ -1,4 +1,3 @@
-// Certificate.js
 import React from 'react';
 import './Certificate.css';
 

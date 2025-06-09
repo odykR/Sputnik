@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './YanMap.css';
 
 const YanMap = () => {
+    const [copiedEmail, setCopiedEmail] = useState(false);
+    const [copiedPhone, setCopiedPhone] = useState(false);
+
+    const copyEmail = () => {
+        navigator.clipboard.writeText('sputniknvr@gmail.com')
+            .then(() => {
+                setCopiedEmail(true);
+                setTimeout(() => setCopiedEmail(false), 2000);
+            })
+            .catch(err => console.error('Ошибка копирования:', err));
+    };
+
+    const copyPhone = () => {
+        navigator.clipboard.writeText('+79094478382')
+            .then(() => {
+                setCopiedPhone(true);
+                setTimeout(() => setCopiedPhone(false), 2000);
+            })
+            .catch(err => console.error('Ошибка копирования:', err));
+    };
+
+    document.querySelectorAll('.text-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', function() {
+            const notification = this.querySelector('.copy-notification');
+            if (notification) {
+                notification.classList.add('active');
+                setTimeout(() => {
+                    notification.classList.remove('active');
+                }, 2000);
+            }
+        });
+    });
+
     return (
-        <div className="yanmap-wrapper">
+        <section id="YanMap" className="yanmap-wrapper">
             <div className="contacts-container">
                 <div className="map-container">
                     <iframe
@@ -17,14 +50,45 @@ const YanMap = () => {
                 <div className="contacts-info">
                     <h2>КОНТАКТЫ</h2>
                     <div className="contacts-details">
-                        <p>Г. Новороссийск, ул. Набережная адмирала Серебрякова 19, помещение 39</p>
-                        <p>sputniknvr@gmail.com</p>
-                        <p>Телефон для связи: +7 (909) 447-83-82</p>
-                        <p>Тегеграм: @Sputnik-nvrsk</p>
+                        <div className="contact-line">
+                            <div className="icon-wrapper">
+                                <img src="/images/home_con.png" alt="Адрес" className="contact-icon_yan" />
+                            </div>
+                            <p>Г. Новороссийск, ул. Набережная адмирала Серебрякова 19, помещение 39</p>
+                        </div>
+
+                        <div className="contact-line">
+                            <div className="icon-wrapper">
+                                <img src="/images/sms_con.png" alt="Email" className="contact-icon_yan" />
+                            </div>
+                            <div className="text-wrapper" onClick={copyEmail}>
+                                <span className="hoverable-text">sputniknvr@gmail.com</span>
+                                {copiedEmail && <span className="copy-notification">✓ Скопировано</span>}
+                            </div>
+                        </div>
+
+                        <div className="contact-line">
+                            <div className="icon-wrapper">
+                                <img src="/images/phone_con.png" alt="Телефон" className="contact-icon_yan" />
+                            </div>
+                            <div className="text-wrapper" onClick={copyPhone}>
+                                <span className="hoverable-text">+7 (909) 447-83-82</span>
+                                {copiedPhone && <span className="copy-notification">✓ Скопировано</span>}
+                            </div>
+                        </div>
+
+                        <div className="contact-line">
+                            <div className="icon-wrapper">
+                                <img src="/images/tele_con.png" alt="Телеграм" className="contact-icon_yan" />
+                            </div>
+                            <a href="https://t.me/Sputnik_nvrsk" target="_blank" rel="noopener noreferrer" className="hoverable-text">
+                                @Sputnik_nvrsk
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

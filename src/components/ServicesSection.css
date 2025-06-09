@@ -1,12 +1,14 @@
 .services-section {
     padding: 0 20px 0;
-    background-color: #fff;
+    background-color: #E9F3FF;
     color: #333;
     text-align: center;
 }
 
 .services-section h2 {
-    padding-bottom: 30px;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 40px;
+    padding-bottom: 20px;
 }
 
 .services-grid {
@@ -52,7 +54,7 @@
     height: 100%;
     object-fit: cover;
     transition: all 0.5s ease;
-    filter: grayscale(100%);
+    filter: grayscale(70%);
 }
 
 .service-item.active img,
@@ -75,26 +77,27 @@
     right: 0;
     margin: 0;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(5, 37, 43, 0.7);
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
-    text-align: left;
-    font-family: 'Druk', sans-serif;
+    font-family: 'FiraSans-Regular', sans-serif;
+    text-align: center;
     transition: background 0.3s ease;
-    z-index: 2; /* Убедимся, что заголовок выше виньетки */
+    z-index: 2;
 }
 
 .service-item:hover h3,
 .service-item.active h3 {
-    background: rgba(66, 60, 178, 0.8);
+    background: rgb(53, 109, 140, 0.8);
 }
 
 .service-description {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    background: #f8f9fa;
+    background: #f0f5fb;
+    font-family: 'FiraSans-Regular', sans-serif;
     color: #282c34;
     border-radius: 0 0 8px 8px;
     transition:
@@ -112,18 +115,17 @@
     max-height: 500px;
     opacity: 1;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #E9F3FF;
     border-top: none;
-    white-space: pre-line; /* Сохраняет переносы строк */
-    text-align: left; /* Выравнивание по левому краю */
-    padding-left: 20px; /* Отступ для пунктов */
+    white-space: pre-line;
+    text-align: left;
 }
 
 .service-description p {
-    white-space: pre-line; /* Это ключевое свойство */
-    text-align: left;
-    padding-left: 20px;
-    margin: 0 auto;
+    white-space: pre-line;
+    text-align: justify;
+    padding-left: 9px;
+    margin: 9px auto 0;
     max-width: 80%;
     color: #282c34;
     line-height: 1.6;
@@ -135,7 +137,27 @@
     text-align: center;
 }
 
-/* Для мобильных устройств */
+.service-order-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: rgba(53, 109, 140, 0.8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.service-order-btn:hover {
+    background-color: #356d8c;
+}
+
 @media (max-width: 768px) {
     .services-grid {
         grid-template-columns: 1fr;
@@ -143,5 +165,9 @@
 
     .service-description.active {
         max-height: 300px;
+    }
+    .service-order-btn {
+        padding: 10px;
+        font-size: 14px;
     }
 }

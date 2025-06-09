@@ -1,0 +1,34 @@
+.footer {
+    margin-top: 0;
+    padding: 30px 20px;
+    background-color: #356d8c;
+    position: relative; /* Для позиционирования кнопки */
+    color: white;
+    text-align: center;
+    z-index: 5;
+}
+
+/* Центрируем основной текст */
+.footer p {
+    margin: 0;
+    display: inline-block;
+}
+
+/* Кнопка "Админка" — справа, без фона и рамок */
+.admin-button {
+    position: absolute;
+    left: 20px; /* Фиксируем справа */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.admin-button:hover {
+    color: #9bc2d8; /* Меняем цвет при наведении */
+}

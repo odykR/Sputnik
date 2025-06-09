@@ -1,0 +1,29 @@
+/* src/admin/AdminPage.css */
+
+.admin-page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота на весь экран */
+    background-color: #f4f7f6; /* Общий фон для всей админки */
+    font-family: 'Arial', sans-serif; /* Или ваш 'FiraSans-Regular' */
+}
+
+.admin-main-content {
+    flex-grow: 1; /* Занимает все доступное пространство под хедером */
+    padding: 30px; /* Отступы вокруг основного контента */
+    max-width: 1200px; /* Ограничение по ширине для центрального контента */
+    margin: 30px auto; /* Центрирование контента, отступ сверху */
+    background-color: #ffffff; /* Фон для основного блока контента */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Тень для основного блока контента */
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .admin-main-content {
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}

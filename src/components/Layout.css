@@ -1,12 +1,11 @@
 .common-background {
-    background: url("/public/images/back3.png") no-repeat center center;
+    background: url("/public/images/back.png") no-repeat center center;
     background-size: cover;
     width: 100%;
-    min-height: 100vh; /* На всю высоту экрана */
+    min-height: 100vh;
     position: relative;
 }
 
-/* Для растяжения на всю ширину (если есть отступы) */
 .common-background::before {
     content: '';
     position: relative;

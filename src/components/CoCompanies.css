@@ -1,0 +1,85 @@
+.companies-section {
+    padding: 30px 0;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #356d8c;
+}
+
+.companies-section h2 {
+    text-align: center;
+    margin: 0 auto 10px;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 40px;
+}
+
+.companies-section h4 {
+    text-align: center;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 20px;
+    margin: 0 auto 10px;
+}
+
+.companies-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.company-block {
+    flex: 1;
+    min-width: 250px;
+    max-width: 10%;
+    padding: 20px 0 14px;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.company-block:hover {
+    transform: translateY(-5px);
+}
+
+.company-block h3 {
+    margin: 15px 0 0;
+    color: #fff;
+    font-family: 'FiraSans-Regular', sans-serif;
+    font-size: 18px;
+}
+
+.company-logo {
+    width: 250px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .companies-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-block {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+}

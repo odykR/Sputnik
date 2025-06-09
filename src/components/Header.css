@@ -1,45 +1,39 @@
-
-
 .header {
     font-family: 'FiraSans-Regular', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0; /* Измененные отступы */
+    padding: 50px 100px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     font-size: 24px;
-    background: transparent; /* Важно! */
-
+    gap: 20px;
+    background: transparent;
+    position: relative;
 }
+
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    position: relative; /* Добавляем для позиционирования логотипов */
-    width: 100px; /* Фиксированная ширина */
-    height: auto; /* Автоматическая высота */
-    /* Сохраняем оригинальные свойства для выравнивания */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
     margin: 0;
     padding: 0;
 }
 
-/* Стили для изображений логотипа */
 .logo img {
-    width: 100px; /* Сохраняем исходный размер */
+    width: 100px;
     height: auto;
     transition: opacity 0.4s ease;
-    /* Убираем transform из общего стиля */
 }
 
-/* Исходный логотип */
 .logo .default-logo {
-    position: static; /* Отменяем absolute для основного положения */
+    position: static;
     opacity: 1;
 }
 
-/* Логотип при наведении */
 .logo .hover-logo {
     position: absolute;
     left: 0;
@@ -47,7 +41,6 @@
     opacity: 0;
 }
 
-/* Анимация при наведении */
 .logo:hover .default-logo {
     opacity: 0;
 }
@@ -56,22 +49,18 @@
     opacity: 1;
 }
 
-/* Удаляем старую анимацию bounce */
-/* @keyframes logoBounce и связанные стили удаляем */
-
 .menu {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px; /* Отступ между пунктами меню */
+    gap: 20px;
 }
 .menu a {
     color: white;
     text-decoration: none;
     font-size: 18px;
 }
-
 
 .menu ul {
     display: flex;
@@ -80,23 +69,26 @@
     margin: 0;
     padding: 0;
 }
-/* Добавьте эти стили */
-.menu ul li a {
+
+.menu ul button {
     text-decoration: none;
-    color: white; /* Явно указываем белый цвет */
+    color: white;
     font-family: 'FiraSans-Regular', sans-serif;
     position: relative;
-    transition: color 0.3s ease; /* Плавное изменение цвета */
+    transition: color 0.3s ease;
 }
 
-.menu ul li a:hover {
-    color: #423cb2; /* Цвет при наведении */
+.menu ul li button:hover {
+    color: #9bc2d8;
     text-decoration: none;
+}
+.menu ul li a:hover {
+    color: #9bc2d8;
 }
 
 .contact-info {
     font-family: 'FiraSans-Regular', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -112,49 +104,167 @@
 }
 
 .contact-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
+    color: white;
 }
 .contact-info a {
-    color: white; /* Исходный цвет (белый) */
+    color: white;
     text-decoration: none;
-    transition: color 0.3s ease; /* Плавное изменение цвета */
+    transition: color 0.5s ease;
 }
 
-.contact-info a:hover {
-    color: #423cb2; /* Цвет при наведении */
+.contact-info a,
+.contact-icon:hover {
+    color: #9bc2d8;
 }
-
 
 
 .contact-item:hover {
-    color: #423cb2;
-    cursor: default; /* Убрать курсор-указатель */
+    color: #9bc2d8;
+    cursor: default;
 }
 
 .contact-item:hover .contact-icon {
-    filter: brightness(0) saturate(100%) invert(19%) sepia(85%) saturate(1577%) hue-rotate(234deg) brightness(90%) contrast(89%);
+    filter: brightness(0) saturate(100%) invert(81%) sepia(12%) saturate(1233%) hue-rotate(166deg) brightness(92%) contrast(89%);
 }
-/* Медиазапрос для мобильных устройств */
-@media (max-width: 991px) {
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #9bc2d8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.contact-item[onclick] {
+    cursor: pointer;
+}
+
+/* Бургер меню */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1230px) {
     .header {
-        flex-direction: column; /* Переводим в вертикальную ориентацию */
-        padding: 20px; /* Увеличиваем поля для мобильных устройств */
-        gap: 20px; /* Отступ между основными секциями */
+        padding: 20px;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
     }
 
     .logo {
-        margin-bottom: 20px; /* Отступ снизу для логотипа */
+        position: static;
+        transform: none;
+        margin: 0;
+        width: 100px;
+    }
+
+    .logo .hover-logo {
+        display: none;
+    }
+    .logo:hover .default-logo {
+        opacity: 1 !important;
     }
 
     .menu {
-        flex-direction: column; /* Переводим меню в вертикальную ориентацию */
-        gap: 10px; /* Отступ между пунктами меню */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 50%;
+        height: 100vh;
+        background-color: rgba(17, 63, 89, 0.9);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 100px 30px 0;
+        transition: right 0.5s ease;
+        z-index: 90;
     }
 
+    .menu ul {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+
+    .menu a,
+    .contact-item {
+        font-size: clamp(18px, 4vw, 30px);
+        font-family: 'FiraSans-Regular', sans-serif;
+    }
     .contact-info {
-        flex-direction: column; /* Переводим контактную информацию в вертикальную ориентацию */
-        gap: 10px; /* Отступ между элементами контактной информации */
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .burger-menu.active .burger-line:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger-menu.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active .burger-line:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .desktop-contact {
+        display: none;
+    }
+
+    .mobile-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 40px;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media (min-width: 1231px) {
+    .burger-menu,
+    .mobile-contact {
+        display: none !important;
     }
 }

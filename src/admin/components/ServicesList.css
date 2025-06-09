@@ -1,0 +1,193 @@
+/* src/admin/components/ServicesList/ServicesList.css */
+
+/* Общие стили для контейнера списка */
+.services-list-container {
+    padding: 0; /* Контейнер AdminPage.css уже даёт padding */
+}
+
+.services-list-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-size: 2.5em;
+    font-weight: 700;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.services-list-container .error-message {
+    background-color: #ffebee;
+    color: #c0392b;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    border: 1px solid #e74c3c;
+    text-align: center;
+}
+
+.services-list-container .no-services-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Кнопка "Добавить услугу" */
+.services-list-container .add-service-section {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.services-list-container .add-service-btn {
+    padding: 15px 35px;
+    background-color: #356d8c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.services-list-container .add-service-btn:hover {
+    background-color: #356d8c;
+    transform: translateY(-3px);
+}
+
+.services-list-container .add-service-btn:active {
+    transform: translateY(0);
+}
+
+/* Стили списка услуг (карточки) */
+.services-list-container ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0;
+}
+
+.services-list-container ul li {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex; /* Делаем элемент Flex-контейнером */
+    flex-direction: column; /* Элементы внутри будут располагаться вертикально */
+    justify-content: space-between; /* Распределяем пространство между содержимым и кнопками */
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 400px; /* Установите минимальную высоту для карточки, чтобы все были одинаковыми */
+}
+
+.services-list-container ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Новый контейнер для основного контента (текст + изображение) */
+.service-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Позволяет этому блоку занять все доступное пространство */
+}
+
+/* Контейнер для заголовка и описания */
+.service-text-content {
+    margin-bottom: 15px; /* Отступ между текстом и изображением */
+}
+
+.services-list-container ul li h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 1.5em;
+    min-height: 2em; /* Минимальная высота для заголовка, если он короткий */
+}
+
+.services-list-container ul li p {
+    font-size: 0.95em;
+    color: #555;
+    flex-grow: 1;
+    max-height: 95px; /* Ограничение высоты описания - настройте по необходимости */
+    overflow: hidden; /* Скрывает содержимое, выходящее за max-height */
+    text-overflow: ellipsis; /* Добавляет многоточие, если текст обрезается */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Ограничение до 5 строк */
+    -webkit-box-orient: vertical;
+    line-height: 1.3;
+}
+
+/* Контейнер для изображения */
+.service-image-container {
+    width: 100%;
+    height: 180px; /* Фиксированная высота для контейнера изображения */
+    overflow: hidden; /* Обрезает изображение, если оно больше */
+    border-radius: 6px;
+    margin-top: auto; /* Прижимает изображение к нижней части service-content-wrapper */
+    display: flex; /* Для центрирования изображения внутри */
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    background-color: #f0f0f0; /* Фоновый цвет, если нет изображения */
+}
+
+.services-list-container ul li .service-image { /* Применяем класс к самому img */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ключевое свойство: изображение будет покрывать контейнер, сохраняя пропорции */
+    display: block; /* Убираем возможные лишние отступы у img */
+    border-radius: 6px; /* Задать скругление углов, как у контейнера */
+}
+
+.services-list-container ul li .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Прижимает кнопки к нижней части li */
+    width: 100%;
+    padding-top: 15px; /* Отступ сверху для визуального отделения */
+    border-top: 1px solid #eee; /* Разделитель */
+}
+
+.services-list-container ul li .action-buttons button {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+.services-list-container ul li .action-buttons .edit-btn {
+    background-color: #356d8c;
+    color: white;
+}
+
+.services-list-container ul li .action-buttons .edit-btn:hover {
+    background-color: #9BC2D8;
+}
+
+.services-list-container ul li .action-buttons .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.services-list-container ul li .action-buttons .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .services-list-container h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .services-list-container ul {
+        grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
+    }
+}
