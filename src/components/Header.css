@@ -182,7 +182,15 @@
         position: static;
         transform: none;
         margin: 0;
-        width: 100px;
+        /* Изменяем ширину логотипа для мобильных */
+        width: clamp(70px, 20vw, 90px); /* Например: минимум 70px, максимум 90px, адаптивно 20% от ширины viewport */
+        /* height: auto; - убедитесь, что это свойство есть, чтобы изображение масштабировалось пропорционально */
+    }
+
+    .logo img {
+        /* Убедимся, что изображение занимает всю доступную ширину своего родителя (.logo) */
+        width: 100%;
+        height: auto; /* Сохраняем пропорции */
     }
 
     .logo .hover-logo {
@@ -196,14 +204,21 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: 50%;
+        /* Изменения здесь */
+        width: min(70%, 300px); /* Например, 70% от ширины экрана, но не более 300px */
+        /* Или, если хотите, чтобы занимало почти весь экран, но с небольшим отступом справа: */
+        /* width: calc(100% - 40px); */
+        /* right: -100vw; (вместо -100%) */
+        /* Если будете использовать calc(100% - 40px), то right: -100vw; и active: right: 20px; */
+
         height: 100vh;
         background-color: rgba(17, 63, 89, 0.9);
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         gap: 20px;
-        padding: 100px 30px 0;
+        padding: 100px 20px 0; /* Уменьшаем горизонтальный паддинг до 20px, если ширина 70%, или увеличиваем, если ширина больше */
+        box-sizing: border-box; /* Добавим, чтобы padding не увеличивал общую ширину */
         transition: right 0.5s ease;
         z-index: 90;
     }
@@ -211,21 +226,25 @@
     .menu ul {
         flex-direction: column;
         gap: 20px;
-        width: 100%;
+        width: 100%; /* Убедитесь, что список занимает всю доступную ширину меню */
         padding: 0;
         margin: 0;
         text-align: left;
     }
 
     .menu.active {
-        right: 0;
+        right: 0; /* Возвращаем меню на экран */
+        /* Если вы использовали width: calc(100% - 40px); и right: -100vw;, то здесь будет right: 20px; */
     }
+
 
 
     .menu a,
     .contact-item {
-        font-size: clamp(18px, 4vw, 30px);
+        font-size: clamp(16px, 4vw, 24px); /* Скорректируйте min/max размер шрифта */
         font-family: 'FiraSans-Regular', sans-serif;
+        /* Добавьте max-width, если текст очень длинный */
+        max-width: 100%; /* Ограничить ширину элемента его родителем */
     }
     .contact-info {
         display: none;
@@ -251,14 +270,17 @@
         display: none;
     }
 
-    .mobile-contact {
+    mobile-contact {
         display: flex;
         flex-direction: column;
         gap: 15px;
         margin-top: 40px;
         align-items: flex-start;
-        width: 100%;
+        width: 100%; /* Убедитесь, что занимает всю ширину */
         padding: 0;
+        /* Возможно, потребуется добавить max-width на сам contact-item, если текст очень длинный */
+        overflow-wrap: break-word; /* Позволяет словам переноситься, если они не помещаются */
+        word-break: break-all; /* Более агрессивный перенос, если overflow-wrap не помогает */
     }
 }
 

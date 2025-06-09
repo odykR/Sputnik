@@ -11,7 +11,7 @@ const ServicesList = ({ onAddService, onEditService, refreshTrigger }) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch('http://localhost:3001/api/services', {
+            const response = await fetch('http://81.94.150.135:3001/api/services', {
                 headers: {
                     'Authorization': `Bearer ${authToken}`
                 }
@@ -39,7 +39,7 @@ const ServicesList = ({ onAddService, onEditService, refreshTrigger }) => {
         }
         setError(null);
         try {
-            const response = await fetch(`http://localhost:3001/api/services/${id}`, {
+            const response = await fetch(`http://81.94.150.135:3001/api/services/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${authToken}`

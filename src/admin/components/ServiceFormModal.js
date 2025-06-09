@@ -78,8 +78,8 @@ const ServiceFormModal = ({ currentService, onClose, onSaveSuccess }) => {
 
         const method = currentService ? 'PUT' : 'POST';
         const url = currentService
-            ? `http://localhost:3001/api/services/${currentService.id}`
-            : 'http://localhost:3001/api/services';
+            ? `http://81.94.150.135:3001/api/services/${currentService.id}`
+            : 'http://81.94.150.135:3001/api/services';
 
         try {
             const response = await fetch(url, {

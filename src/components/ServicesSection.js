@@ -10,7 +10,7 @@ const ServicesSection = () => {
         // <-- ДОБАВЛЕНО: Загрузка услуг при монтировании компонента
         const fetchServices = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/services'); // Запрос к бэкенду
+                const response = await fetch('http://81.94.150.135:3001/api/services'); // Запрос к бэкенду
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

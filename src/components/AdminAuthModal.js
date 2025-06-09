@@ -29,7 +29,7 @@ const AdminAuthModal = forwardRef((props, ref) => {
         setModal({ ...modal, message: '', isSuccess: false });
 
         try {
-            const response = await fetch('http://localhost:3001/api/admin-login', {
+            const response = await fetch('http://81.94.150.135:3001/api/admin-login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password }),
